@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------
+ 🌈 Root Variables
+------------------------------ */
+:root {
+  --bg-gradient: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+  --accent-gradient: linear-gradient(90deg, #06b6d4, #3b82f6);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* ------------------------------
+ 🖤 Global Body
+------------------------------ */
+body {
+  @apply text-gray-100;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  transition: all 0.4s ease-in-out;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* ------------------------------
+ 🌊 Navbar / Glass Effect
+------------------------------ */
+header {
+  animation: fadeSlideDown 0.8s ease forwards;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: background 0.5s ease, box-shadow 0.3s ease;
+}
+
+.scrolled {
+  box-shadow: 0 4px 25px rgba(6, 182, 212, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ------------------------------
+ ✨ Animations
+------------------------------ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------
+ 💎 Buttons
+------------------------------ */
+button,
+a.btn-primary {
+  background: var(--accent-gradient);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+button:hover,
+a.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.45);
+}
+
+/* ------------------------------
+ 🌐 Links + Hover Effects
+------------------------------ */
+a {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: #06b6d4;
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+}
+
+/* ------------------------------
+ 🌀 Scrollbar
+------------------------------ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+
+/* ------------------------------
+ 🧭 Section Styling Helpers
+------------------------------ */
+.section {
+  @apply py-20 px-6 md:px-12 fade-in;
+}
+
+.section-title {
+  @apply text-4xl font-extrabold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500;
+}
+
+/* ------------------------------
+ 🌅 Footer
+------------------------------ */
+footer {
+  @apply text-center py-6 text-gray-400 text-sm;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* ------------------------------
+ 🌟 Navbar Links
+------------------------------ */
+.nav-link {
+  color: #f8fafc;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #38bdf8;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
